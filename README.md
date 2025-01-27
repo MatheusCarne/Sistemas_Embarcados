@@ -33,10 +33,10 @@ imu_calculate_euler_angles: Converte um quaternion em ângulos de Euler (roll, p
 ![diagrama de blocos](imagens/diagramadeblocos.png)   
 
 # Esquemático
-![esquemático]()
+![esquemático](imagens/esquematico.png)
 
 # Árvore de arquivos
-![Arquitetura](images)
+![Arquitetura](imagens/arvore.png)
 
 # Diagrama de arquitetura
-![Arquitetura]()
+![Arquitetura](imagens/arquitetura.png)
