@@ -1,9 +1,19 @@
 {
-    "C_Cpp.intelliSenseEngine": "default",
-    "idf.espIdfPathWin": "d:\\esp\\v5.4\\esp-idf\\v5.4\\esp-idf",
-    "idf.openOcdConfigs": [
-        "board/esp32c3-ftdi.cfg"
-    ],
-    "idf.portWin": "COM1",
-    "idf.toolsPathWin": "d:\\espressif"
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "idf.adapterTargetName": "esp32",
+  "idf.openOcdConfigs": [
+    "board/esp32-wrover-kit-3.3v.cfg"
+  ],
+  "files.associations": {
+    "imu_tools.h": "c",
+    "freertos.h": "c",
+    "task.h": "c",
+    "sensor_imu.h": "c",
+    "gpio.h": "c",
+    "array": "c",
+    "string": "c",
+    "string_view": "c"
+  },
+  "idf.port": "/dev/tty.usbserial-0001",
+  "idf.flashType": "UART"
 }
