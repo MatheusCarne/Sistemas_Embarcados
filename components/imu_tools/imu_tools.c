@@ -4,7 +4,7 @@
 
 #define MPU6050_ADDR            0x68             /**< Endereço padrão do MPU6050 */
 const gpio_num_t SDA_PIN = 21;
-const gpio_num_t SCL_PIN = 22;
+const gpio_num_t SCL_PIN = 20;
 
 /**
  * @brief Lê os dados do sensor IMU e os armazena na estrutura IMUData.

@@ -1,6 +1,5 @@
-
-idf_component_register(SRCS "sensor_imu.c"
+idf_component_register(
+    SRCS "sensor_imu.c"
+    INCLUDE_DIRS "include"
     REQUIRES driver
-    INCLUDE_DIRS "."
-    "include")
-                    
+)

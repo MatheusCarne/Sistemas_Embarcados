@@ -73,7 +73,7 @@ void app_main() {
                 break;
         }
 
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
 
         // Exemplo de lógica para mudar ação, poderia ser baseado na entrada do usuário ou outras condições
         currentAction = (currentAction + 1) % 7; // Ciclar através das ações
