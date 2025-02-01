@@ -54,7 +54,6 @@ esp_err_t imu_init(uint8_t devAddr, gpio_num_t sda_pin, gpio_num_t scl_pin)
     i2c_cmd_link_delete(cmd);
 
     if (ret == ESP_OK && who_am_i == 0x68) {
-        printf("MPU6050 found and initialized\n");
         return ESP_OK;
     } else {
         printf("MPU6050 not found or initialization failed\n");
@@ -174,6 +173,5 @@ esp_err_t imu_deinit()
         return ESP_FAIL;
     }
 
-    printf("I2C driver uninstalled successfully\n");
     return ESP_OK;
 }
