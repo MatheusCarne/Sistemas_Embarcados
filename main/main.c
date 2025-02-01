@@ -11,7 +11,7 @@ typedef enum {
     ACTION_PRINT_QUATERNION,
     ACTION_CALCULATE_EULER_ANGLES,
     ACTION_PRINT_EULER_ANGLES,
-    ACTION_NONE // Caso padrão se necessário
+    ACTION_NONE // Caso padrão se necessário 
 } Action;
 
 /**
