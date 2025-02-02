@@ -33,7 +33,7 @@ void app_main() {
         // Verifica se o sensor está conectado ANTES de qualquer ação
         if (imu_read_data(&data) != ESP_OK) {
             printf("\n[ERRO] MPU6050 desconectado! Verifique as conexões e reinicie o sistema.\n");
-            vTaskDelay(2000 / portTICK_PERIOD_MS);
+            vTaskDelay(1000 / portTICK_PERIOD_MS);
             continue; // Aguarda e tenta novamente na próxima iteração
         }
 
@@ -84,7 +84,7 @@ void app_main() {
                 break;
         }
 
-        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
         currentAction = (currentAction + 1) % 7; // Ciclar através das ações
     }
 }
