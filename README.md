@@ -36,41 +36,31 @@
 | Placas suportadas | ESP32 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-C61 | ESP32-H2 | ESP32-S3 |
 | ----------------- | ----- | -------- | -------- | -------- | --------- | -------- | -------- |
 
-### Descrição do projeto
+## Desenvolvimento de Bibliotecas
+Foram desenvolvidas bibliotecas para os seguintes módulos/sensores:
 
-Neste repositório foram desenvolvidas duas bibliotecas para utilizar do módulo MPU6050 utilizando das medições do giroscópio e do acelerômetro.
+### MPU6050 (I2C)
+- **Descrição:** Biblioteca para leitura dos dados do acelerômetro e giroscópio via protocolo I2C.
+- **Funcionalidades:**
+  - Leitura de aceleração nos eixos X, Y e Z.
+  - Leitura de rotação nos eixos X, Y e Z.
+  - Cálculo de Quartenions.
+  - Cálculo do Ângulo de Euler.
 
-Na biblioteca **sensor_imu** implementa funções para inicializar, ler dados e desinicializar o sensor IMU (MPU6050) usando o protocolo I2C.
+### SSD1306 (I2C)
+- **Descrição:** Biblioteca para controle do display OLED SSD1306 via comunicação I2C.
+- **Funcionalidades:**
+  - Exibição de texto.
+  - Desenho de imagens bitmap.
 
-```
-imu_init(): Inicializa o sensor MPU6050 configurando o driver I2C e verificando se o dispositivo está acessível.
+### DS18B20 (1-Wire)
+- **Descrição:** Biblioteca para leitura de temperatura utilizando o sensor DS18B20 via comunicação 1-Wire.
+- **Funcionalidades:**
+  - Leitura de temperatura com resolução configurável.
+  - Suporte a múltiplos sensores no mesmo barramento.
+  - Conversão automática para graus Celsius.
 
-imu_get_acceleration_data: Lê os dados de aceleração do sensor.
-
-imu_get_gyroscope_data: Lê os dados do giroscópio do sensor.
-
-imu_deinit: Desinicializa o driver I2C, liberando os recursos alocados.
-```
-
-Na **imu_tools** implementa funções relacionadas à leitura de dados de um sensor IMU (MPU6050), cálculo de quaternions e conversão para ângulos de Euler.  
-
-```
-imu_read_data: Lê os dados do acelerômetro e giroscópio do sensor IMU, inicializando a comunicação I2C e coletando as informações necessárias.
-
-imu_calculate_quaternion: Calcula o quaternion que representa a orientação do sensor a partir dos dados de aceleração e giroscópio.
-
-imu_calculate_euler_angles: Converte um quaternion em ângulos de Euler (roll, pitch, yaw), que são mais intuitivos para descrever a orientação de um objeto.
-
-```
-
-# Diagrama de estados
-![diagrama de estados](imagens/estados2.drawio.png)  
-
-# Diagrama de blocos
-![diagrama de blocos](imagens/diagramadeblocos.png)   
-
-# Esquemático
-![esquemático](imagens/esquematico.png)
-
-# Diagrama de arquitetura
-![Arquitetura](imagens/arquitetura.png)
+### SSR (Relé de Estado Sólido)
+- **Descrição:** Biblioteca para controle de um Relé de Estado Sólido (SSR) com suporte a acionamento ON-OFF e PWM.
+- **Funcionalidades:**
+  - Modulação por Largura de Pulso (PWM) para controle de potência.
