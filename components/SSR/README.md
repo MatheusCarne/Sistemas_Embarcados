@@ -40,26 +40,6 @@
 
 Neste repositório foram desenvolvidas duas bibliotecas para utilizar do SSR.
 
-Na biblioteca **servo_hw** Configura o timer e o canal PWM e demais configurações.
 
-```
-hw_servo_init( ): Configura o timer e o canal PWM e Testa o servo movendo-o de 0° a 180° e de volta para 0°.
-
-hw_servo_set_pulse_width( ): Converte a largura de pulso para um valor de duty cycle e Define o duty cycle no canal do PWM.
-
-hw_servo_deinit( ): Para o PWM e pausa o timer, desligando o controle do servo.
-
-```
-
-Na **servo_tools**   
-
-```
-servo_init( ): Chama hw_servo_init( ) para configurar o PWM e preparar o controle do servo.
-
-servo_set_angle( ): Verifica se o ponteiro config é válido e se o ângulo está entre 0° e 180°, Converte o ângulo em largura de pulso, etc.
-
-servo_get_angle( ): Retorna o ângulo atual armazenado em config->current_angle.
-
-servo_deinit( ): Chama hw_servo_deinit( ) para desligar o PWM e liberar os recursos.
 ```
 
