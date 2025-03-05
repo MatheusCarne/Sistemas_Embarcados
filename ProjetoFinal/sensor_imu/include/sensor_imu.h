@@ -26,7 +26,6 @@ typedef struct {
     float x, y, z;
 } AccelerationData;
 
-
 //Estrutura para dados de giroscópio.
 
 typedef struct {
