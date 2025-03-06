@@ -66,6 +66,7 @@ Foram desenvolvidas bibliotecas para os seguintes módulos/sensores:
 - Modulação por Largura de Pulso (PWM) para controle de potência.
 
 # Descrição projeto de disciplina:
+### [link wokwi](https://wokwi.com/projects/424606381829337089)
 ## Contador de Passos com ESP32
 ## Introdução
 
