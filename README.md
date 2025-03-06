@@ -67,6 +67,8 @@ Foram desenvolvidas bibliotecas para os seguintes módulos/sensores:
 
 # Descrição projeto de disciplina:
 ### [link wokwi](https://wokwi.com/projects/424606381829337089)
+# Video Explicativo
+***[Video Explicativo - Sistemas Embarcados [Youtube]](https://youtu.be/_NRQQ1nDXyA)***
 ## Contador de Passos com ESP32
 ## Introdução
 
