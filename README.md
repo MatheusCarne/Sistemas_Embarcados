@@ -84,7 +84,7 @@ O projeto pode ser integrado a displays, sensores e outros periféricos para for
 
 ---
 # Esquemático
-![esquemático](ProjetoFinalimagens/esqFinal.png)
+![esquemático](ProjetoFinal/imagens/esqfinal.png)
 ---
 
 ## Funcionalidades do Sistema
