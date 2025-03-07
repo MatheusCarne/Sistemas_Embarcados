@@ -85,8 +85,8 @@ O projeto pode ser integrado a displays, sensores e outros periféricos para for
 - **SSD1306**: Exibe o número de passos em tempo real.
 
 ---
-# Diagrama de Bolocos
-![esquemático](ProjetoFinal/imagens/projetofinalse.jpg)
+# Diagrama de Blocos
+![blocos](ProjetoFinal/imagens/projetofinalse.jpg)
 # Esquemático
 ![esquemático](ProjetoFinal/imagens/esqfinal.png)
 ---
