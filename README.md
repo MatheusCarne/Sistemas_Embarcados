@@ -86,7 +86,7 @@ O projeto pode ser integrado a displays, sensores e outros periféricos para for
 
 ---
 # Diagrama de Bolocos
-![esquemático](ProjetoFinal/imagens/projetofinalse.png)
+![esquemático](ProjetoFinal/imagens/projetofinalse.jpg)
 # Esquemático
 ![esquemático](ProjetoFinal/imagens/esqfinal.png)
 ---
