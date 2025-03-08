@@ -7,6 +7,8 @@
 
 //Configurações do MPU.
 
+#define MPU6050_PWR_MGMT_1_REG   0x6B
+#define MPU6050_PWR_MGMT_1_CLKSEL 0x01 
 #define I2C_MASTER_FREQ_HZ      100000           /**< Frequência do barramento I2C. */
 #define I2C_MASTER_NUM          I2C_NUM_0        /**< Número do barramento I2C. */
 #define MPU6050_ADDR            0x68
