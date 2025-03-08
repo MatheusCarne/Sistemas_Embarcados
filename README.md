@@ -93,10 +93,10 @@ O projeto pode ser integrado a displays, sensores e outros periféricos para for
 
 ## Funcionalidades do Sistema
 
-### 1. Contagem de Passos:
+### 1. Contagem de Passos e metros:
 - O algoritmo de detecção de passos processa os dados do sensor para identificar movimentos característicos de caminhada ou corrida.
 
-### 2. Exibição do Número de Passos:
+### 2. Exibição do Número de Passos e metros percorridos:
 - O número de passos é exibido em um display OLED.
 
 ### 3. Reset do Contador:
