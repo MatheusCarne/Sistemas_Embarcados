@@ -1,20 +1,18 @@
-#include <stdio.h>
 #include "sensor_imu.h"
+#include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/i2c.h"
 #include "esp_log.h"
-#include <esp_err.h>
+#include <math.h>
+#include "esp_err.h"
 
-#define MPU6050_ADDR            0x68
+#define MPU6050_ADDR              0x68
+#define MPU6050_PWR_MGMT_1        0x6B
+#define MPU6050_WHO_AM_I_REG      0x75
+#define MPU6050_ACCEL_XOUT_H      0x3B
+#define ACCEL_SCALE               16384.0  // Para ±2g
 
-/**
- * @brief Inicializa o sensor IMU.
- * @param devAddr Endereço do dispositivo I2C.
- * @param sda_pin GPIO para SDA.
- * @param scl_pin GPIO para SCL.
- * @return esp_err_t ESP_OK em caso de sucesso, ou ESP_FAIL em caso de falha.
- */
 esp_err_t imu_init(uint8_t devAddr, gpio_num_t sda_pin, gpio_num_t scl_pin) {
     esp_err_t ret;
 
@@ -30,17 +28,32 @@ esp_err_t imu_init(uint8_t devAddr, gpio_num_t sda_pin, gpio_num_t scl_pin) {
     ret = i2c_param_config(I2C_MASTER_NUM, &conf);
     if (ret != ESP_OK) {
         printf("Failed to configure I2C parameters\n");
-        return ESP_ERR_NOT_FOUND;
+        return ret;
     }
 
     ret = i2c_driver_install(I2C_MASTER_NUM, I2C_MODE_MASTER, 0, 0, 0);
     if (ret != ESP_OK) {
         printf("Failed to install I2C driver\n");
-        return ESP_ERR_NOT_FOUND;
+        return ret;
     }
 
-    uint8_t who_am_i = 0;
+    // Ativar o sensor (desativar o modo de suspensão)
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, (devAddr << 1) | I2C_MASTER_WRITE, true);
+    i2c_master_write_byte(cmd, MPU6050_PWR_MGMT_1, true);
+    i2c_master_write_byte(cmd, 0x00, true);  // Wake up
+    i2c_master_stop(cmd);
+    ret = i2c_master_cmd_begin(I2C_MASTER_NUM, cmd, pdMS_TO_TICKS(1000));
+    i2c_cmd_link_delete(cmd);
+    if (ret != ESP_OK) {
+        printf("Failed to wake up MPU6050\n");
+        return ret;
+    }
+
+    // Verificar WHO_AM_I
+    uint8_t who_am_i = 0;
+    cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, (devAddr << 1) | I2C_MASTER_WRITE, true);
     i2c_master_write_byte(cmd, MPU6050_WHO_AM_I_REG, true);
@@ -55,16 +68,11 @@ esp_err_t imu_init(uint8_t devAddr, gpio_num_t sda_pin, gpio_num_t scl_pin) {
         printf("MPU6050 found and initialized\n");
         return ESP_OK;
     } else {
-        printf("MPU6050 not found or initialization failed\n");
+        printf("MPU6050 not found or initialization failed. WHO_AM_I: 0x%02X\n", who_am_i);
         return ESP_ERR_NOT_FOUND;
     }
 }
 
-/**
- * @brief Lê os dados de aceleração do sensor IMU.
- * @param data Ponteiro para estrutura AccelerationData onde os dados serão armazenados.
- * @return esp_err_t ESP_OK em caso de sucesso, ou ESP_FAIL em caso de falha.
- */
 esp_err_t imu_get_acceleration_data(AccelerationData *data) {
     if (data == NULL) {
         return ESP_FAIL;
@@ -89,11 +97,17 @@ esp_err_t imu_get_acceleration_data(AccelerationData *data) {
     i2c_cmd_link_delete(cmd);
 
     if (ret == ESP_OK) {
-        data->x = ((int16_t)(accel_data[0] << 8 | accel_data[1])) / ACCEL_SCALE;
-        data->y = ((int16_t)(accel_data[2] << 8 | accel_data[3])) / ACCEL_SCALE;
-        data->z = ((int16_t)(accel_data[4] << 8 | accel_data[5])) / ACCEL_SCALE;
+        int16_t raw_x = (int16_t)(accel_data[0] << 8 | accel_data[1]);
+        int16_t raw_y = (int16_t)(accel_data[2] << 8 | accel_data[3]);
+        int16_t raw_z = (int16_t)(accel_data[4] << 8 | accel_data[5]);
+
+        data->x = raw_x / ACCEL_SCALE;
+        data->y = raw_y / ACCEL_SCALE;
+        data->z = raw_z / ACCEL_SCALE;
+        
         return ESP_OK;
     } else {
+        printf("Failed to read acceleration data\n");
         return ESP_FAIL;
     }
 }
