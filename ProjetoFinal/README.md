@@ -38,7 +38,10 @@
 
 # Descrição projeto de disciplina:
 ### [link wokwi](https://wokwi.com/projects/424606381829337089)
+# Video Explicativo
+***[Video Explicativo - Sistemas Embarcados [Youtube]](https://youtu.be/_NRQQ1nDXyA)***
 ## Contador de Passos com ESP32
+![Foto](imagens/proimag.png)
 ## Introdução
 
 Este projeto consiste em um contador de passos (pedômetro) desenvolvido para a plataforma ESP32. O objetivo é monitorar e exibir o número de passos dados por um usuário, utilizando sensores e recursos do ESP32. O sistema é ideal para aplicações de fitness, saúde ou monitoramento de atividade física.
@@ -54,16 +57,18 @@ O projeto pode ser integrado a displays, sensores e outros periféricos para for
 - **SSD1306**: Exibe o número de passos em tempo real.
 
 ---
+# Diagrama de Blocos
+![blocos](imagens/projetofinalse.jpg)
 # Esquemático
-![esquemático](ProjetoFinal/imagens/esqfinal.png)
+![esquemático](imagens/esqfinal.png)
 ---
 
 ## Funcionalidades do Sistema
 
-### 1. Contagem de Passos:
+### 1. Contagem de Passos e metros:
 - O algoritmo de detecção de passos processa os dados do sensor para identificar movimentos característicos de caminhada ou corrida.
 
-### 2. Exibição do Número de Passos:
+### 2. Exibição do Número de Passos e metros percorridos:
 - O número de passos é exibido em um display OLED.
 
 ### 3. Reset do Contador:
