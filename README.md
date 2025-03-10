@@ -67,7 +67,7 @@ Foram desenvolvidas bibliotecas para os seguintes módulos/sensores:
 
 # Descrição projeto de disciplina:
 
-[**Diretório com os Códigos**](ProjetoFinal)
+[**Diretório com Códigos e Relatório Técnico**](ProjetoFinal)
 ---
 
 ### [link wokwi](https://wokwi.com/projects/424606381829337089)
