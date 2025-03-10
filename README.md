@@ -70,6 +70,7 @@ Foram desenvolvidas bibliotecas para os seguintes módulos/sensores:
 # Video Explicativo
 ***[Video Explicativo - Sistemas Embarcados [Youtube]](https://youtu.be/_NRQQ1nDXyA)***
 ## Contador de Passos com ESP32
+![Foto](ProjetoFinal/imagens/proimag.png)
 ## Introdução
 
 Este projeto consiste em um contador de passos (pedômetro) desenvolvido para a plataforma ESP32. O objetivo é monitorar e exibir o número de passos dados por um usuário, utilizando sensores e recursos do ESP32. O sistema é ideal para aplicações de fitness, saúde ou monitoramento de atividade física.
