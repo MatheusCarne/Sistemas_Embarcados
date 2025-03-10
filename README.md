@@ -66,6 +66,10 @@ Foram desenvolvidas bibliotecas para os seguintes módulos/sensores:
 - Modulação por Largura de Pulso (PWM) para controle de potência.
 
 # Descrição projeto de disciplina:
+
+[**Diretório com os Códigos**](ProjetoFinal)
+---
+
 ### [link wokwi](https://wokwi.com/projects/424606381829337089)
 # Video Explicativo
 ***[Video Explicativo - Sistemas Embarcados [Youtube]](https://youtu.be/_NRQQ1nDXyA)***
